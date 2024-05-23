@@ -4,19 +4,19 @@ export class sbiRegex {
     // Regexes for checking known types of lines. They have to be written carefully 
     // so that it matches on the line we carea bout, but not any other random line
     // that happens to start with same the word(s).
-    static armor = /^((armor|armour) class)\s\d+/i;
-    static actions = /^actions$/i;
-    static abilities = /^(\bstr\b|\bdex\b|\bcon\b|\bint\b|\bwis\b|\bcha\b)/i;
-    static bonusActions = /^bonus actions$/i;
-    static challenge = /^(challenge|\bcr\b|challenge rating)\s\d+/i;
-    static conditionImmunities = /^condition immunities\s/i;
-    static damageImmunities = /^damage immunities\s/i;
-    static damageResistances = /^damage resistances\s/i;
-    static damageVulnerabilities = /^damage vulnerabilities\s/i;
-    static health = /^(hit points|\bhp\b)\s\d+/i;
+    static armor = /^(Класс (Доспеха|брони:))\s\d+/i;
+    static actions = /^ДЕЙСТВИЯ$/i;
+    static abilities = /^(\bСИЛ\b|\bЛОВ\b|\bТЕЛ\b|\bИНТ\b|\bМДР\b|\bХАР\b)/i;
+    static bonusActions = /^БОНУСНЫЕ ДЕЙСТВИЯ$/i;
+    static challenge = /^(Опасность(|:))\s\d+/i;
+    static conditionImmunities = /^(Иммунитет к состоянию|Невосприимчивость к состояниям:)\s/i;
+    static damageImmunities = /^(Иммунитет к урону|Невосприимчивость к урону:)\s/i;
+    static damageResistances = /^(Сопротивление урону|Устойчивость к урону:)\s/i;
+    static damageVulnerabilities = /^(Уязвимость к урону(|:))\s/i;
+    static health = /^(П3:|\bХиты\b)\s\d+/i;
     static lairActions = /^lair actions$/i;
-    static languages = /^languages\s/i;
-    static legendaryActions = /^legendary actions$/i;
+    static languages = /^(Языки(|:))\s/i;
+    static legendaryActions = /^Легендарные действия$/i;
     static mythicActions = /^mythic actions$/i;
     // Proficiency Bonus isn't used because Foundry calculates it automatically.
     // This is just here for completeness.
