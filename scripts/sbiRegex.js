@@ -14,35 +14,35 @@ export class sbiRegex {
     static damageResistances = /^(Сопротивление урону|Устойчивость к урону:)\s/i;
     static damageVulnerabilities = /^(Уязвимость к урону(|:))\s/i;
     static health = /^(П3:|\bХиты\b)\s\d+/i;
-    static lairActions = /^lair actions$/i;
+    static lairActions = /^Действия логова$/i;
     static languages = /^(Языки(|:))\s/i;
     static legendaryActions = /^Легендарные действия$/i;
-    static mythicActions = /^mythic actions$/i;
+    static mythicActions = /^Мифические действия$/i;
     // Proficiency Bonus isn't used because Foundry calculates it automatically.
     // This is just here for completeness.
-    static proficiencyBonus = /^proficiency bonus\s\+/i;
+    static proficiencyBonus = /^Бонус умения\s\+/i;
     // The racial details line is here instead of below because it doesn't have a 
     // standard starting word, so we have to look at the whole line.
     static racialDetails = /^(?<size>\bfine\b|\bdiminutive\b|\btiny\b|\bsmall\b|\bmedium\b|\blarge\b|\bhuge\b|\bgargantuan\b|\bcolossal\b)(\sswarm of (?<swarmsize>\w+))?\s(?<type>\w+)([,\s]+\((?<race>[,\w\s]+)\))?([,\s]+(?<alignment>[\w\s\-]+))?/ig;
-    static reactions = /^reactions$/i;
-    static savingThrows = /^(saving throws|saves)\s(\bstr\b|\bdex\b|\bcon\b|\bint\b|\bwis\b|\bcha\b)/i;
-    static senses = /^senses( passive)?(.+\d+\s\bft\b)?/i;
-    static skills = /^skills.+[\+-]\d+/i;
+    static reactions = /^Реакции$/i;
+    static savingThrows = /^(Спасброски |saves)\s(\bСил\b|\bЛов\b|\bТел\b|\bИнт\b|\bМуд\b|\bХар\b)/i;
+    static senses = /^Чувства( пассивное)?(.+\d+\s\bft\b)?/i;
+    static skills = /^Навыки.+[\+-]\d+/i;
     static souls = /^souls\s\d+/i;
-    static speed = /^speed\s\d+\sft/i;
+    static speed = /^Скорость\s\d+\sft/i;
     static traits = /^traits$/i;
     static utilitySpells = /^utility spells$/i;
     static villainActions = /^villain actions$/i;
 
     // Regexes for pulling the details out of the lines we identified using the ones above.
     static armorDetails = /(?<ac>\d+)( \((?<armortype>.+)\))?/i;
-    static challengeDetails = /(?<cr>(½|[\d\/]+))\s?(\((?<xp>[\d,]+)\s?xp\))?/i;
+    static challengeDetails = /(?<cr>(½|[\d\/]+))\s?(\((?<xp>[\d,]+)\s?опыта\))?/i;
     static rollDetails = /(?<value>\d+)\s?(\((?<formula>\d+d\d+(\s?[\+\-−–]\s?\d+)?)\))?/i;
-    static perDayDetails = /(?<perday>\d+)\/day/i;
+    static perDayDetails = /(?<perday>\d+)\/день/i;
     static roleDetails = /\d+\s(?<role>\w+)/i;
-    static savingThrowDetails = /must (make|succeed on) a dc (?<savedc>\d+) (?<saveability>\w+) (?<savetext>saving throw|save)/i;
+    static savingThrowDetails = /должен (пройти|succeed on) a dc (?<savedc>\d+) (?<saveability>\w+) (?<savetext>спасбросок|save)/i;
     static sensesDetails = /(?<name>\w+) (?<modifier>\d+)/ig;
-    static skillDetails = /(?<name>\bacrobatics\b|\barcana\b|\banimal handling\b|\bathletics\b|\bdeception\b|\bhistory\b|\binsight\b|\bintimidation\b|\binvestigation\b|\bmedicine\b|\bnature\b|\bperception\b|\bperformance\b|\bpersuasion\b|\breligion\b|\bsleight of hand\b|\bstealth\b|\bsurvival\b) (?<modifier>[\+|-]\d+)/ig;
+    static skillDetails = /(?<name>\bакробатика\b|\bмагия\b|\banimal handling\b|\bатлетика\b|\bdeception\b|\bhistory\b|\binsight\b|\bintimidation\b|\binvestigation\b|\bmedicine\b|\bnature\b|\bperception\b|\bperformance\b|\bpersuasion\b|\breligion\b|\bsleight of hand\b|\bstealth\b|\bsurvival\b) (?<modifier>[\+|-]\d+)/ig;
     static speedDetails = /(?<name>\w+)\s?(?<value>\d+)/ig;
     static spellcastingDetails = /\((?<slots>\d+) slot|(?<perday>\d+)\/day|spellcasting ability is (?<ability1>\w+)|(?<ability2>\w+) as the spellcasting ability|spell save dc (?<savedc>\d+)/ig;
 
@@ -54,14 +54,14 @@ export class sbiRegex {
     // ([\w\d\-+,;']+\s?){0,3}                   <- Represents the words that follow the first word, using the same regex for the allowed characters.
     //                                              We assume the title only has 0-3 words following it, otherwise it's probably a sentence.
     // (\([\w –\-\/]+\))?                        <- Represents an optional bit in parentheses, like '(Recharge 5-6)'.
-    static blockTitle = /^(([A-Z][\w\d\-+,;'’]+[\s\-]?)((of|and|the|from|in|at|on|with|to|by|into)\s)?([\w\d\-+,;'’]+\s?){0,3}(\((?!spell save)[^)]+\))?)[.!]/;
+    static blockTitle = /^(([А-я][\w\d\-+,;'’]+[\s\-]?)((of|and|the|from|in|at|on|with|to|by|into)\s)?([\w\d\-+,;'’]+\s?){0,3}(\((?!spell save)[^)]+\))?)[.!]/;
     static villainActionTitle = /(?<title>^Action\s[123]:\s.+[.!?])\s+(?<description>.*)/;
     // The rest of these are utility regexes to pull out specific data.
-    static abilityNames = /\bstr\b|\bdex\b|\bcon\b|\bint\b|\bwis\b|\bcha\b/ig;
+    static abilityNames = /\bсил\b|\bлов\b|\bтел\b|\bинт\b|\bмуд\b|\bхар\b/ig;
     static abilityValues = /(?<base>\d+)\s?\((?<modifier>[\+\-−–]?\d+)\)/g;
-    static abilitySaves = /(?<name>\bstr\b|\bdex\b|\bcon\b|\bint\b|\bwis\b|\bcha\b) (?<modifier>[\+|-]\d+)/ig;
+    static abilitySaves = /(?<name>\bсил\b|\bлов\b|\bтел\b|\bинт\b|\bмуд\b|\bхар\b) (?<modifier>[\+|-]\d+)/ig;
     static actionCost = /\((costs )?(?<cost>\d+) action(s)?\)/i;
-    static attack = /\+(?<tohit>\d+) to hit/i;
+    static attack = /\+(?<tohit>\d+) к попаданию/i;
     static conditionTypes = /\bblinded\b|\bcharmed\b|\bdeafened\b|\bdiseased\b|\bexhaustion\b|\bfrightened\b|\bgrappled\b|\bincapacitated\b|\binvisible\b|\bparalyzed\b|\bpetrified\b|\bpoisoned\b|\bprone\b|\brestrained\b|\bstunned\b|\bunconscious\b/ig;
     static damageRoll = /\(?(?<damageroll1>\d+(d\d+)?)(\s?\+\s?(?<damagemod1>\d+))?\)? (?<damagetype1>\w+)( damage)(.+(plus|and)\s+(\d+\s+\(*)?((?<damageroll2>\d+(d\d+)?)(\s?\+\s?(?<damagemod2>\d+))?)\)? (?<damagetype2>\w+)( damage))?/i;
     static damageTypes = /\bbludgeoning\b|\bpiercing\b|\bslashing\b|\bacid\b|\bcold\b|\bfire\b|\blightning\b|\bnecrotic\b|\bpoison\b|\bpsychic\b|\bradiant\b|\bthunder\b/ig;
