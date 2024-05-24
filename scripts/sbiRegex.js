@@ -4,18 +4,18 @@ export class sbiRegex {
     // Regexes for checking known types of lines. They have to be written carefully 
     // so that it matches on the line we carea bout, but not any other random line
     // that happens to start with same the word(s).
-    static armor = /^(Класс (Доспеха|брони:))\s\d+/i;
+    static armor = /^Класс Доспеха\s\d+/i;
     static actions = /^ДЕЙСТВИЯ$/i;
     static abilities = /^(\bСИЛ\b|\bЛОВ\b|\bТЕЛ\b|\bИНТ\b|\bМДР\b|\bХАР\b)/i;
     static bonusActions = /^БОНУСНЫЕ ДЕЙСТВИЯ$/i;
-    static challenge = /^(Опасность(|:))\s\d+/i;
-    static conditionImmunities = /^(Иммунитет к состоянию|Невосприимчивость к состояниям:)\s/i;
-    static damageImmunities = /^(Иммунитет к урону|Невосприимчивость к урону:)\s/i;
-    static damageResistances = /^(Сопротивление урону|Устойчивость к урону:)\s/i;
-    static damageVulnerabilities = /^(Уязвимость к урону(|:))\s/i;
-    static health = /^(П3:|\bХиты\b)\s\d+/i;
+    static challenge = /^Опасность\s\d+/i;
+    static conditionImmunities = /^Иммунитет к состоянию\s/i;
+    static damageImmunities = /^Иммунитет к урону\s/i;
+    static damageResistances = /^Сопротивление урону\s/i;
+    static damageVulnerabilities = /^Уязвимость к урону\s/i;
+    static health = /^Хиты\s\d+/i;
     static lairActions = /^Действия логова$/i;
-    static languages = /^(Языки(|:))\s/i;
+    static languages = /^Языки\s/i;
     static legendaryActions = /^Легендарные действия$/i;
     static mythicActions = /^Мифические действия$/i;
     // Proficiency Bonus isn't used because Foundry calculates it automatically.
