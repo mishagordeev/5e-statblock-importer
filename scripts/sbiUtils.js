@@ -112,7 +112,7 @@ export class sbiUtils {
     // camelToTitleCase("legendaryActions") => "Legendary Actions"
     static camelToTitleCase(string) {
         return string// insert a space before all caps
-            .replace(/([A-Z])/g, ' $1')
+            .replace(/([А-Я])/g, ' $1')
             // uppercase the first character
             .replace(/^./, function (str) { return str.toUpperCase(); })
     }
@@ -142,7 +142,7 @@ export class sbiUtils {
 
     // startsWithCapital("Foo") => true
     static startsWithCapital(string) {
-        return /[A-Z]/.test(string.charAt(0))
+        return /[А-Я]/.test(string.charAt(0))
     }
 
     // parseFraction("1/2") => 0.5

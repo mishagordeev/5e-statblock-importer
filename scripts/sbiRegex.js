@@ -29,7 +29,7 @@ export class sbiRegex {
     static senses = /^Чувства( пассивное)?(.+\d+\s\bft\b)?/i;
     static skills = /^Навыки.+[\+-]\d+/i;
     static souls = /^souls\s\d+/i;
-    static speed = /^Скорость\s\d+\sft/i;
+    static speed = /^Скорость\s\d+\sфутов/i;
     static traits = /^traits$/i;
     static utilitySpells = /^utility spells$/i;
     static villainActions = /^villain actions$/i;
@@ -37,7 +37,7 @@ export class sbiRegex {
     // Regexes for pulling the details out of the lines we identified using the ones above.
     static armorDetails = /(?<ac>\d+)( \((?<armortype>.+)\))?/i;
     static challengeDetails = /(?<cr>(½|[\d\/]+))\s?(\((?<xp>[\d,]+)\s?опыта\))?/i;
-    static rollDetails = /(?<value>\d+)\s?(\((?<formula>\d+d\d+(\s?[\+\-−–]\s?\d+)?)\))?/i;
+    static rollDetails = /(?<value>\d+)\s?(\((?<formula>\d+к\d+(\s?[\+\-−–]\s?\d+)?)\))?/i;
     static perDayDetails = /(?<perday>\d+)\/день/i;
     static roleDetails = /\d+\s(?<role>\w+)/i;
     static savingThrowDetails = /должен (пройти|succeed on) a dc (?<savedc>\d+) (?<saveability>\w+) (?<savetext>спасбросок|save)/i;

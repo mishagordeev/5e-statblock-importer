@@ -3,7 +3,7 @@
     "name": "5e-statblock-importer-ru",
     "title": "5e Statblock Importer Ru",
     "description": "Import monster and NPC statblocks for D&D 5e",
-    "version": "1.82.00",
+    "version": "1.82.00.7",
     "compatibility": {
         "minimum": "0.8.0",
         "maximum": "11",
@@ -15,6 +15,11 @@
         {
             "name": "ArcaneRoboBrain",
             "discord": "ArcaneRoboBrain#6885",
+            "flags": {}
+        },
+        {
+            "name": "mishagordeev",
+            "discord": "",
             "flags": {}
         }
     ],
@@ -40,5 +45,5 @@
     ],
     "url": "https://github.com/mishagordeev/5e-statblock-importer",
     "manifest": "https://raw.githubusercontent.com/mishagordeev/5e-statblock-importer/main/module.json",
-    "download": "https://github.com/mishagordeev/5e-statblock-importer/archive/refs/tags/test6.zip"
+    "download": "https://github.com/mishagordeev/5e-statblock-importer/archive/refs/tags/test7.zip"
 }

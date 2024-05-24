@@ -300,16 +300,16 @@ export class sbiParser {
         // Remove the type name.
         switch (type) {
             case DamageConditionId.immunities:
-                line = line.replace(/damage immunities/i, "").trim();
+                line = line.replace(/Иммунитет к урону/i, "").trim();
                 break;
             case DamageConditionId.resistances:
-                line = line.replace(/damage resistances/i, "").trim();
+                line = line.replace(/Сопротивление урону/i, "").trim();
                 break;
             case DamageConditionId.vulnerabilities:
-                line = line.replace(/damage vulnerabilities/i, "").trim();
+                line = line.replace(/Уязвимость к урону/i, "").trim();
                 break;
             case BlockID.conditionImmunities:
-                line = line.replace(/condition immunities/i, "").trim();
+                line = line.replace(/Иммунитет к состоянию/i, "").trim();
                 break;
         }
 
